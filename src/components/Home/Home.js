@@ -3,13 +3,14 @@ import './Home.css';
 import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
 import dateFormat from 'dateformat';
-
+import moment from 'moment'
 
 
 const Home = () => {
 const [todos, setTodos] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
 const [filterCompleted, setFilterCompleted] = useState("");
+const [newFilterCompleted, setNewFilterCompleted] = useState("");
 const [currentPage, setCurrentPage] = useState(1);
 const [totalTodos, setTotalTodos] = useState(0);
 const todosPerPage = 9;
@@ -45,28 +46,47 @@ todo =>
 filterCompleted === "true" && todo.launch_success === true
 )
 }
+
 if (filterCompleted === "false") {
 computedTodos = computedTodos.filter(
 todo =>
 filterCompleted === "false" && todo.launch_success === false
 )
 }
+
+if (newFilterCompleted === moment().format("MMMM Do YYYY")) {
+
+// computedTodos = computedTodos.filter(
+// todo =>
+// newFilterCompleted === moment().format("MMMM Do YYYY") && todo.launch_success !== moment().format("MMMM Do YYYY")
+// )
+
+
+
+}
+
+
+
 setTotalTodos(computedTodos.length);
 
 //Current Page slice
 return computedTodos.slice(
 (currentPage - 1) * todosPerPage,
 (currentPage - 1) * todosPerPage + todosPerPage
+
 );
-}, [todos, currentPage, searchTerm, filterCompleted]);
+}, [todos, currentPage, searchTerm, filterCompleted, newFilterCompleted]);
 
 // Change page
 const paginate = (pageNumber) => setCurrentPage(pageNumber);
 const resetFilter = () => {
 setSearchTerm("");
 setFilterCompleted("");
+setNewFilterCompleted("");
 setCurrentPage(1);
 };
+
+//UTC Date to Local Date
 function date (arg) {
 const utcDate = arg;
 const date = new Date(utcDate);
@@ -74,22 +94,12 @@ const newdate = date.toLocaleString();
 const finaldate = dateFormat(newdate, "d mmm, yyyy")
 return finaldate;
 }
-const dateString = '2021-10-22T00:00:00';
-const convertUTCToLocalTime = (dateString) => {
-let date = new Date(dateString);
-const milliseconds = Date.UTC(
-date.getFullYear(),
-date.getMonth(),
-date.getDate(),
-date.getHours(),
-date.getMinutes(),
-date.getSeconds(),
-);
-const localTime = new Date(milliseconds);
-localTime.getDate() // local date
-localTime.getHours() // local hour
-console.log(localTime.getDate())
-};
+
+
+function filterByLaunchDateLastWeek(launches: any) {
+
+}
+
 return(
 <div className="container">
 	<div className="header">
@@ -98,7 +108,7 @@ return(
 	</div>
 	<div className="d-flex justify-content-end checkbox">
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+			<input class="form-check-input"  value={newFilterCompleted ? "false" : " "} onClick={(e) => {setNewFilterCompleted(e.target.value);setCurrentPage(1);}} type="checkbox"  id="flexCheckDefault"/>
 			<label class="form-check-label" for="flexCheckDefault">
 				Show upcoming only
 			</label>
@@ -136,13 +146,7 @@ return(
 			<div className="mb-3">
 				
 				<select
-					className="form-select"
-					value={filterCompleted}
-					onChange={(e) => {
-					setFilterCompleted(e.target.value);
-					setCurrentPage(1);
-					}}
-					>
+					className="form-select" value={filterCompleted} onChange={(e) => {setFilterCompleted(e.target.value);setCurrentPage(1);}}>
 					<option value="" disabled selected hidden>By Launch Status</option>
 					<option value="false">Failure</option>
 					<option value="true">Success</option>
@@ -153,12 +157,9 @@ return(
 			<div className="mb-3">
 				
 				<select
-					className="form-select"
-					
-					
-					>
+					className="form-select" value={newFilterCompleted} onChange={(e) => {setNewFilterCompleted(e.target.value);setCurrentPage(1);}} >
 					<option value="" disabled selected hidden>By Launch Date</option>
-					<option value="">Last Week</option>
+					<option value={moment().format("MMMM Do YYYY")}>Last Week</option>
 					<option value="">Last Month</option>
 					<option value="">Last Year</option>
 				</select>

@@ -32,6 +32,11 @@
 	margin-top: 68px;
 	margin-bottom: 5px;
 }
+
+
+.container .row .form-select option:hover {
+	background-color: #000000!important;
+}
 .item{
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -77,4 +82,273 @@
 	line-height: 24px;
 	color: #495057;
 	font-weight: 400;
+}
+
+
+
+
+
+
+/*@media only screen and (max-width: 600px) and (min-width: 505px){
+
+.header p{
+	text-align: left;
+	font-size: 20px;
+}
+.item{
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+.btn_active{
+	width: 16%!important;
+	margin-left: 205px!important;
+}
+.btn_inactive{
+	width: 12%!important;
+	margin-left: 215px!important;
+}
+
+.pagination{
+	width: 15px!important;
+	margin-left: 260px;	
+}
+
+.page-link{
+	padding: 12px!important;
+}
+.footer p{
+	font-size: 14px!important;
+}
+
+}*/
+
+
+
+
+@media only screen and (max-width: 320px){
+
+
+	.header h3{
+		text-align: left;
+	font-size: 25px!important;
+}
+.header p{
+	text-align: left;
+	font-size: 14px!important;
+}
+
+.item{
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+
+
+
+.card img{
+	height: 40%;
+	width: 40%;
+}
+
+.btn_active{
+	width: 28%;
+	margin-left: 98px;
+}
+.btn_inactive{
+	width: 18%;
+	margin-left: 100px;
+}
+
+.container .select{
+	width: 100%!important;
+}
+
+.page-link{
+	padding: 4px!important;
+}
+	.footer p{
+
+	font-size: 10px!important;
+}
+}
+
+
+@media only screen and (max-width: 375px) and (min-width: 321px){
+.header h3{
+	font-size: 35px;
+}
+	.header p{
+	text-align: left;
+	font-size: 17px;
+}
+.btn_active{
+	width: 25%;
+	margin-left: 125px;
+}
+.btn_inactive{
+	width: 18%;
+	margin-left: 130px;
+}
+.item{
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+.page-link{
+	padding: 5px!important;
+}
+
+.footer p{
+	font-size: 15px!important;
+}
+}
+
+@media only screen and (max-width: 425px) and (min-width: 376px){
+.header h3{
+	font-size: 35px;
+	text-align: left;
+}
+	.header p{
+	text-align: left;
+	font-size: 20px;
+}
+
+.item{
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+.btn_active{
+	width: 20%!important;
+	margin-left: 150px!important;
+}
+.btn_inactive{
+	width: 15%!important;
+	margin-left: 160px!important;
+}
+
+.page-link{
+	padding: 8px!important;
+}
+}
+
+@media only screen and (max-width: 505px) and (min-width: 426px){
+
+.item{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+.btn_active{
+	width: 38%!important;
+	margin-left: 70px!important;
+}
+.btn_inactive{
+	width: 25%!important;
+	margin-left: 80px!important;
+}
+
+.page-link{
+	padding: 12px!important;
+}
+
+}
+
+@media only screen and (max-width: 767px) and (min-width: 506px) {
+
+.item{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+.btn_active{
+	width: 38%!important;
+	margin-left: 70px!important;
+}
+.btn_inactive{
+	width: 25%!important;
+	margin-left: 80px!important;
+}
+
+.page-link{
+	padding: 12px!important;
+}
+
+}
+
+@media only screen and (max-width: 924px) and (min-width: 768px) {
+
+.btn_active{
+	width: 40%!important;
+	margin-left: 58px!important;
+}
+.btn_inactive{
+	width: 25%!important;
+	margin-left: 65px!important;
+}
+
+}
+
+@media only screen and (max-width: 991px) and (min-width: 925px) {
+
+.btn_active{
+	width: 40%!important;
+	margin-left: 58px!important;
+}
+.btn_inactive{
+	width: 25%!important;
+	margin-left: 65px!important;
+}
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
+
+.btn_active{
+	width: 28%!important;
+	margin-left: 95px!important;
+}
+.btn_inactive{
+	width: 18%!important;
+	margin-left: 105px!important;
+}
+
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 1025px) {
+
+	.btn_active{
+		width: 28%!important;
+		margin-left: 95px!important;
+	}
+	.btn_inactive{
+		width: 18%!important;
+		margin-left: 105px!important;
+	}
+
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+
+	.btn_active{
+		width: 24%!important;
+		margin-left: 125px!important;
+	}
+	.btn_inactive{
+		width: 15%!important;
+		margin-left: 130px!important;
+	}
+
 }
